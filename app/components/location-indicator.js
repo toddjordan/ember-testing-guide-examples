@@ -1,9 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  locationService: Ember.inject.service(),
-
-  currentLocation: Ember.computed('locationService.currentLocation'),
+  locationService: Ember.inject.service('location-service'),
 
   city: Ember.computed('locationService.currentLocation', function () {
     return this.get('locationService').getCurrentCity();

@@ -22,7 +22,7 @@ moduleForComponent('location-indicator', 'Integration | Component | location ind
 
   beforeEach: function () {
     console.dir(locationStub);
-    this.container.register('service:location-service', locationStub);
+    this.registry.register('service:location-service', locationStub);
   }
 });
 

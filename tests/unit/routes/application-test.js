@@ -12,9 +12,10 @@ moduleFor('route:application', 'Unit | Route | application', {
   }
 });
 
-test('should display an alert', function(assert) {
+test('should display an alert', function (assert) {
   assert.expect(2);
 
+  console.dir(this);
   // with moduleFor, the subject returns an instance of the route
   let route = this.subject();
 
