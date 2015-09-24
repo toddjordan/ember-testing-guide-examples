@@ -1,6 +1,9 @@
 import Ember from 'ember';
 import Application from '../../app';
 import config from '../../config/environment';
+import './should-have-element-with-count';
+import './dblclick';
+import './add-contact';
 
 export default function startApp(attrs) {
   var application;
