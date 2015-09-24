@@ -16,11 +16,10 @@ test('should display an alert', function(assert) {
   assert.expect(2);
 
   // with moduleFor, the subject returns an instance of the route
-  var route = this.subject();
-  var expectedText;
+  let route = this.subject();
 
   // stub window.alert to perform a qunit test
-  expectedText = 'foo';
+  var expectedText = 'foo';
   window.alert = function(text) {
     assert.equal(text, expectedText, 'expected ' + text + ' to be ' + expectedText);
   };

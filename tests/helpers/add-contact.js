@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Test.registerAsyncHelper('addContact',
-  function(app, assert, name, context) {
+  function(app, assert, name) {
     fillIn('#name', name);
     click('button.create');
   }
