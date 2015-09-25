@@ -7,7 +7,8 @@ export default DS.Model.extend({
   other: 'no',
 
   computedFoo: Ember.computed('foo', function() {
-    return 'computed ' + this.get('foo');
+    let foo = this.get('foo');
+    return `computed ${foo}`;
   }),
 
   testMethod() {
@@ -16,10 +17,11 @@ export default DS.Model.extend({
 
   calc() {
     this.incrementProperty('count');
-    return 'count: ' + this.get('count');
+    let count = this.get('count');
+    return `count: ${count}`;
   },
 
-  doSomething: Ember.observer('foo', function(){
+  doSomething: Ember.observer('foo', function() {
     this.set('other', 'yes');
   })
 });

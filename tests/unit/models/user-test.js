@@ -7,8 +7,8 @@ moduleForModel('user', 'Unit | Model | user', {
 });
 
 test('should own a profile', function(assert) {
-  var User = this.store().modelFor('user');
-  var relationship = Ember.get(User, 'relationshipsByName').get('profile');
+  const User = this.store().modelFor('user');
+  const relationship = Ember.get(User, 'relationshipsByName').get('profile');
 
   assert.equal(relationship.key, 'profile', 'has relationship with profile');
   assert.equal(relationship.kind, 'belongsTo', 'kind of relationship is belongsTo');

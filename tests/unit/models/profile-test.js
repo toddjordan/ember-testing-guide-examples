@@ -6,7 +6,7 @@ moduleForModel('profile', 'Unit | Model | profile', {
 });
 
 test('it exists', function(assert) {
-  var model = this.subject();
+  const model = this.subject();
   // var store = this.store();
   assert.ok(!!model);
 });

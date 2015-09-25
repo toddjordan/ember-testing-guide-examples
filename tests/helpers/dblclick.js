@@ -2,10 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Test.registerAsyncHelper('dblclick',
   function(app, assert, selector, context) {
-    var $el = findWithAssert(selector, context);
-    Ember.run(function() {
-      $el.dblclick();
-    });
+    let $el = findWithAssert(selector, context);
+    Ember.run(() => $el.dblclick());
   }
 );
 

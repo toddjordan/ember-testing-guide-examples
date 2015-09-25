@@ -12,7 +12,7 @@ moduleFor('route:application', 'Unit | Route | application', {
   }
 });
 
-test('should display an alert', function (assert) {
+test('should display an alert', function(assert) {
   assert.expect(2);
 
   console.dir(this);
@@ -20,20 +20,16 @@ test('should display an alert', function (assert) {
   let route = this.subject();
 
   // stub window.alert to perform a qunit test
-  var expectedText = 'foo';
-  window.alert = function(text) {
-    assert.equal(text, expectedText, 'expected ' + text + ' to be ' + expectedText);
-  };
+  const expectedTextFoo = 'foo';
+  window.alert = (text) => assert.equal(text, expectedTextFoo, `expected ${text} to be ${expectedTextFoo}`);
 
   // call the _displayAlert function which triggers the qunit test above
-  route._displayAlert(expectedText);
+  route._displayAlert(expectedTextFoo);
 
   // set up a second stub to perform a test with the actual action
-  expectedText = 'bar';
-  window.alert = function(text) {
-    assert.equal(text, expectedText, 'expected ' + text + ' to be ' + expectedText);
-  };
+  const expectedTextBar = 'bar';
+  window.alert = (text) => assert.equal(text, expectedTextBar, `expected ${text} to be ${expectedTextBar}`);
 
   // Now use the routes send method to test the actual action
-  route.send('displayAlert', expectedText);
+  route.send('displayAlert', expectedTextBar);
 });

@@ -5,30 +5,26 @@ moduleForModel('some-thing', 'Unit | Model | some thing', {
   needs: []
 });
 
-test('computedFoo correctly concats foo', function(assert) {
-  var someThing = this.subject();
-
+test('should correctly concat foo', function(assert) {
+  const someThing = this.subject();
   someThing.set('foo', 'baz');
-
   assert.equal(someThing.get('computedFoo'), 'computed baz');
 });
 
-test('calling testMethod updated foo', function(assert) {
-  var someThing = this.subject();
-
+test('should update foo on testMethod', function(assert) {
+  const someThing = this.subject();
   someThing.testMethod();
-
   assert.equal(someThing.get('foo'), 'baz');
 });
 
-test('calc returns incremented count', function(assert) {
-  var someThing = this.subject();
+test('should return incremented count on calc', function(assert) {
+  const someThing = this.subject();
   assert.equal(someThing.calc(), 'count: 1');
   assert.equal(someThing.calc(), 'count: 2');
 });
 
-test('doSomething observer sets other prop', function(assert) {
-  var someThing = this.subject();
+test('should set other prop to yes when foo changes', function(assert) {
+  const someThing = this.subject();
   someThing.set('foo', 'baz');
   assert.equal(someThing.get('other'), 'yes');
 });
