@@ -1,8 +1,9 @@
-import { moduleForModel, test } from 'ember-qunit';
+import { moduleFor, test } from 'ember-qunit';
 
-moduleForModel('some-thing', 'Unit | Model | some thing', {
+moduleFor('model:some-thing', 'Unit | Model | some thing', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: [],
+  unit: true
 });
 
 test('should correctly concat foo', function(assert) {

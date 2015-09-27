@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   attributeBindings: ['style'],
 
   style: Ember.computed('name', function() {
-    let name = this.get('name');
+    const name = this.get('name');
     return `color: ${name}`;
   })
 });
