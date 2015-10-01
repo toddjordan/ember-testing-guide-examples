@@ -2,7 +2,6 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import Ember from 'ember';
 
-let locationService;
 const locationStub = Ember.Service.extend({
   city: 'New York',
   country: 'USA',
@@ -10,10 +9,7 @@ const locationStub = Ember.Service.extend({
     x: 1234,
     y: 5678
   },
-  init() {
-    this._super(...arguments);
-    locationService = this;
-  },
+
   getCurrentCity() {
     return this.get('city');
   },
@@ -27,6 +23,7 @@ moduleForComponent('location-indicator', 'Integration | Component | location ind
 
   beforeEach() {
     this.register('service:location-service', locationStub);
+    this.inject.service('location-service', { as: 'location' });
   }
 });
 
@@ -38,10 +35,8 @@ test('should reveal current location', function(assert) {
 test('should change displayed location when current location changes', function(assert) {
   this.render(hbs`{{location-indicator}}`);
   assert.equal(this.$().text().trim(), 'You currently are located in New York, USA', 'origin location should display');
-  Ember.run(() => {
-    locationService.set('city', 'Beijing');
-    locationService.set('country', 'China');
-    locationService.set('currentLocation', { x: 11111, y: 222222 });
-  });
+  this.set('location.city', 'Beijing');
+  this.set('location.country', 'China');
+  this.set('location.currentLocation', { x: 11111, y: 222222 });
   assert.equal(this.$().text().trim(), 'You currently are located in Beijing, China', 'location display should change');
 });
