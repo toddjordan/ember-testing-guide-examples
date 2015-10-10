@@ -1,8 +1,9 @@
 # ember-testing-guide-examples
-Running examples from the ember testing guide
+Running examples from the ember testing guide.  The purpose of this repo is to ensure...
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+* The tests pass JSHint
+* The tests pass JSCS (via ember-suave)
+* The tests pass!
 
 ## Prerequisites
 
