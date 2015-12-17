@@ -23,7 +23,7 @@ moduleForComponent('location-indicator', 'Integration | Component | location ind
 
   beforeEach() {
     this.register('service:location-service', locationStub);
-    this.inject.service('location-service', { as: 'location' });
+    this.inject.service('location-service', { as: 'locationService' });
   }
 });
 
@@ -35,8 +35,8 @@ test('should reveal current location', function(assert) {
 test('should change displayed location when current location changes', function(assert) {
   this.render(hbs`{{location-indicator}}`);
   assert.equal(this.$().text().trim(), 'You currently are located in New York, USA', 'origin location should display');
-  this.set('location.city', 'Beijing');
-  this.set('location.country', 'China');
-  this.set('location.currentLocation', { x: 11111, y: 222222 });
+  this.set('locationService.city', 'Beijing');
+  this.set('locationService.country', 'China');
+  this.set('locationService.currentLocation', { x: 11111, y: 222222 });
   assert.equal(this.$().text().trim(), 'You currently are located in Beijing, China', 'location display should change');
 });
